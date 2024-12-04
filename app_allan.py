@@ -28,7 +28,7 @@ datos = cargar_datos_csv()
 distritos = cargar_datos_geopackage()
 
 # Selección de evento
-eventos = ["INUNDACION", "DESLIZAMIENTO"]
+eventos = ["INUNDACIÓN", "DESLIZAMIENTO"]
 evento_seleccionado = st.sidebar.selectbox("Selecciona un tipo de evento", eventos)
 
 # Selección de año para contabilizar los eventos
@@ -39,7 +39,7 @@ anio_seleccionado = st.sidebar.selectbox("Selecciona un año", anios)
 datos_filtrados = datos[(datos[evento_seleccionado] == 1) & (datos["AÑO"] == anio_seleccionado)]
 
 #  Tabla de datos
-columnas_mostrar = ["CICLON", "NOMBRE", "FECHA", "CANTON", "DISTRITO", "TOTAL_AFECTADOS", "PERDIDA_DOLARES"]
+columnas_mostrar = ["CICLÓN", "NOMBRE", "FECHA", "CANTÓN", "DISTRITO", "TOTAL_AFECTADOS", "PERDIDA_DOLARES"]
 st.subheader(f"Eventos registrados: {evento_seleccionado} en {anio_seleccionado}")
 if not datos_filtrados.empty:
     st.dataframe(datos_filtrados[columnas_mostrar], hide_index=True)
